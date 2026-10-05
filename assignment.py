@@ -10,9 +10,15 @@ def write_shopping_list(items, filename):
     
 # Exercise 2
 def read_names(filename):
-    # Write your code here
-    pass
-
+    file = open(filename,"r")
+    list = []
+    lines = file.readlines()
+    for i in lines:
+        if line.strip()!="":
+            list.append(line.strip())
+    file.close()
+    return lst
+    
 # Exercise 3
 def append_entry(filename, text):
     # Write your code here
