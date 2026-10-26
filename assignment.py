@@ -10,7 +10,14 @@ def write_shopping_list(items, filename):
     
 # Exercise 2
 def read_names(filename):
-
+    names = []
+    with open(filename, "r") as file:
+        for line in file:
+            cleaned_line = line.strip()
+            # Check if the line is not empty after stripping
+            if cleaned_line != "":
+                names.append(cleaned_line)
+    return names
     
 # Exercise 3
 def append_entry(filename, text):
