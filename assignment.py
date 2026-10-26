@@ -31,10 +31,25 @@ def append_entry(filename, text):
 
 # Exercise 4
 def search_file(filename, word):
-    # Write your code here
-    pass
+        file = open(filename, "r")
+        matching_lines = []
+        search_term = word.lower()
+        for line_num, line in enumerate(file, start=1):
+            if search_term in line.lower():
+                matching_lines.append(line_num)
+        file.close()
+        return matching_lines
 
 # Exercise 5
 def number_the_lines(source, destination):
-    # Write your code here
-    pass
+        source_file = open(source, "r")
+        lines = source_file.readlines()
+        source_file.close()
+        dest_file = open(destination, "w")
+        count = 0
+        for index, line in enumerate(lines, start=1):
+            cleaned_line = line.rstrip("\n")
+            dest_file.write(f"{index}: {cleaned_line}\n")
+            count += 1
+        dest_file.close()
+        return count
